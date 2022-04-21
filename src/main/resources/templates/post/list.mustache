@@ -1,0 +1,35 @@
+{{>/layout/post-header}}
+<div class="container">
+    <div class="d-flex justify-content-end my_mb_sm_1">
+        <a href="/s/post/write-form" class="my_atag_none">
+            <div class="my_icon_rounded_btn d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-pencil"></i>
+            </div>
+        </a>
+    </div>
+
+    <div class="my_post_list">
+        {{#postResponseDto.posts.content}}
+        <div class="my_post_list_item">
+            <div class="my_post_list_item_left">
+                {{#thumnail}}
+                <img src="/upload/{{thumnail}}" width="100%" height="100%">
+                {{/thumnail}}
+                {{^thumnail}}
+                <div class="my_fakeimg">Fake Image</div>
+                {{/thumnail}}
+            </div>
+            <div class="my_post_list_item_right my_ellipsis">
+                <div class="my_text_title my_ellipsis">{{title}}
+                </div>
+                <div class="my_text_body_sm">{{formatCreateDate}}</div>
+                <div class="my_mt_md_1">
+                    <a href="/user/{{user.id}}/post/{{id}}" class="my_success_btn">Read More</a>
+                </div>
+            </div>
+        </div>
+        {{/postResponseDto.posts.content}}
+    </div>
+
+</div>
+{{>/layout/footer}}
