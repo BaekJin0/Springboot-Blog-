@@ -71,7 +71,7 @@ public class PostService {
     // 하나의 서비스는 여러가지 일을 한번에 처리한다. (여러가지 일이 하나의 트랜잭션이다.)
     @Transactional
     public void 게시글쓰기(PostWriteReqDto postWriteReqDto, User principal) {
-        // 서비스는 여러가지 로직이 공존한다. -> 단점 : 디버깅하기 힘들다.
+        // 서비스는 여러가지 로직이 공존한다. → 단점 : 디버깅하기 힘들다.
         // 1. 이미지 파일 저장 (UUID 변경) 후 경로 리턴 받기
         String thumnail = null;
         if (!postWriteReqDto.getThumnailFile().isEmpty()) {
@@ -94,7 +94,7 @@ public class PostService {
         } else {
             throw new CustomException("해당 카테고리가 존재하지 않습니다.");
         }
-        // 오브젝트(ORM)가 아닌 FK를 직접 주입하는 방법의 단점 : 없는 FK가 들어올 수 있다 -> 막을 수 없음
+        // 오브젝트(ORM)가 아닌 FK를 직접 주입하는 방법의 단점 : 없는 FK가 들어올 수 있다 → 막을 수 없음
         // postRepository.mSave(postWriteReqDto.getCategoryId(), principal.getId(),
         // postWriteReqDto.getTitle(),
         // postWriteReqDto.getContent(), thumnail);
