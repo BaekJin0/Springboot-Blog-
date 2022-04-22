@@ -4,6 +4,7 @@ public class Script {
 
     // 오버로딩
     // 메세지 안 띄우고 싶을 때
+
     public static String href(String url) {
         StringBuffer sb = new StringBuffer();
         sb.append("<script>");

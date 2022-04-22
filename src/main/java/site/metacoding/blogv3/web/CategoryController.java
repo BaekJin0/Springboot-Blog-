@@ -51,6 +51,7 @@ public class CategoryController {
         // User principal = loginU.getUser();
 
         // 서비스에 기능 호출 (Category 모델에 세션(유저) 담아서)
+
         Category category = categoryWriteReqDto.toEntity(principal);
         categoryService.카테고리등록(category);
 

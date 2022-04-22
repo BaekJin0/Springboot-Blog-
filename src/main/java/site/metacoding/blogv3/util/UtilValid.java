@@ -16,7 +16,9 @@ public class UtilValid {
             for (FieldError fe : bindingResult.getFieldErrors()) {
                 errorMap.put(fe.getField(), fe.getDefaultMessage());
             }
+
             // 이부분에서 data리턴인지 html 리턴인지 이것만 구분해서 터트려줘!
+
             throw new CustomException(errorMap.toString());
         }
     }

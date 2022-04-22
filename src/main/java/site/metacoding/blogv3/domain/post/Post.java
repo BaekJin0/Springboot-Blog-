@@ -1,6 +1,7 @@
 package site.metacoding.blogv3.domain.post;
 
 import java.time.LocalDateTime;
+
 import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
@@ -32,26 +33,29 @@ import site.metacoding.blogv3.domain.user.User;
 @EntityListeners(AuditingEntityListener.class) // 이 부분 추가
 @Entity
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(length = 60, nullable = false)
     private String title;
+
     @Lob
     @Column(nullable = true)
     private String content;
 
     @Column(length = 200, nullable = true)
+
     private String thumnail;
 
     @JoinColumn(name = "userId")
     @ManyToOne
     private User user;
+
     @JoinColumn(name = "categoryId")
     @ManyToOne
     private Category category;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd hh:mm")
     @CreatedDate // insert 할때만 동작
     private LocalDateTime createDate;
     @LastModifiedDate // update 할때만 동작

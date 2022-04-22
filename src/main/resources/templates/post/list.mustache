@@ -9,6 +9,7 @@
     </div>
 
     <div class="my_post_list">
+        <!-- posts는 Page타입! posts안에있는 content가 List타입! -->
         {{#postResponseDto.posts.content}}
         <div class="my_post_list_item">
             <div class="my_post_list_item_left">
@@ -29,6 +30,14 @@
             </div>
         </div>
         {{/postResponseDto.posts.content}}
+
+        <div class="my_paging">
+            <a href="/user/{{postResponseDto.userId}}/post?page={{postResponseDto.prev}}">이전</a>
+            {{#postResponseDto.pageNumbers}}
+            <a href="/user/{{postResponseDto.userId}}/post?page={{.}}">{{.}}</a>
+            {{/postResponseDto.pageNumbers}}
+            <a href="/user/{{postResponseDto.userId}}/post?page={{postResponseDto.next}}">다음</a>
+        </div>
     </div>
 
 </div>
